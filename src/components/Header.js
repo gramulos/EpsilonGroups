@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Paper from 'material-ui/lib/paper';
 
 import './Header.less';
 
@@ -9,11 +10,11 @@ export default class Header extends Component {
 
     render() {
         return (
-            <div className="header">
+            <Paper className="eg-header" zDepth={1} rounded={false}>
                 <div className="container">
-                    <div className="col-md-12">Header</div>
+                    Header
                 </div>
-            </div>
+            </Paper>
         );
     }
 }
