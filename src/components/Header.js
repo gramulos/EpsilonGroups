@@ -7,7 +7,9 @@ export default class Header extends Component {
 
     render() {
         return(
-            <div>Header</div>
+            <div className="row">
+            <div className="col-md-12">Header</div>
+            </div>
         );
     }
 }
