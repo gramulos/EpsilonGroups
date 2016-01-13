@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Paper from 'material-ui/lib/paper';
 import FontIcon from 'material-ui/lib/font-icon';
 import NavigationItem from './NavigationItem';
+import Ink from 'react-ink';
 
 import './NavigationBar.less';
 
@@ -43,8 +44,12 @@ export default class NavigationBar extends Component {
                     items.map(function (item) {
                         if (!item.items) {
                             //return <NavigationItem text={item.text} link={item.text} onMouseOver={self.onMouseHover} key={item.text}/>;
-                            return <li className="navigation-item" key={item.text}>
-                                <FontIcon className="material-icons" >{item.icon}</FontIcon>{item.text}</li>
+                            return (
+                                <li className="navigation-item" key={item.text}>
+                                    <Ink />
+                                    <FontIcon className="material-icons" >{item.icon}</FontIcon>
+                                    <span className="navigation-item-text">{item.text}</span>
+                                </li>);
                         }
                         else {
                             var text = item.text;
@@ -57,7 +62,8 @@ export default class NavigationBar extends Component {
                                     onMouseOver={self.onMouseHover}
                                     key={item.text}>
                                     <FontIcon className="material-icons" >{item.icon}</FontIcon>
-                                    {item.text} {self.renderMenuItems(item.items, true)}
+                                    <span className="navigation-item-text">{item.text}</span>
+                                    {self.renderMenuItems(item.items, true)}
                                 </li>);
                         }
                     })
