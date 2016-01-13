@@ -10,11 +10,11 @@ export default class Header extends Component {
 
     render() {
         return (
-            <Paper className="eg-header" zDepth={1} rounded={false}>
+            <div className="eg-header">
                 <div className="container">
                     Header
                 </div>
-            </Paper>
+            </div>
         );
     }
 }

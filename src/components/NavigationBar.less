@@ -1,0 +1,68 @@
+@navigation_bg_color: #3a50cd;
+@navigation_bg_color_hover: #4667cd;
+@text_color: #FFFFFF;
+
+@import '../style/animate';
+
+.eg-navigation-bar {
+  position: relative;
+  background-color: @navigation_bg_color !important;
+}
+
+.eg-navigation-bar nav {
+  position: relative;
+}
+
+.navigation-bar .material-icons {
+  color: @text_color !important;
+  vertical-align: middle !important;
+  font-size: 18px !important;
+  padding-right: 10px;
+  transition: none !important;
+}
+
+.navigation-bar {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-item {
+  position: relative;
+  float: left;
+  padding: 12px 18px;
+  background-color: @navigation_bg_color;
+  color: @text_color;
+  cursor: pointer;
+  margin: 0;
+}
+
+.navigation-item:hover {
+  background-color: @navigation_bg_color_hover;
+}
+
+.navigation-item:hover .navigation-sub{
+  visibility: visible;
+  -webkit-animation-name: flipInXFromTop;
+  animation-name: flipInXFromTop;
+
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+}
+
+.navigation-sub {
+  position: absolute;
+  display: block;
+  background-color: @navigation_bg_color;
+  visibility: hidden;
+  margin: 12px 0 0 -18px;
+  padding: 0;
+  width: 175px;
+}
+
+.navigation-sub .navigation-item {
+  width: 100%;
+}
