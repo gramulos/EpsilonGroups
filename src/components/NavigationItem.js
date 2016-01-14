@@ -9,7 +9,7 @@ export default class NavigationItem extends Component {
     render() {
         return (
             <Link to={this.props.link}>
-                <li className="navigation-item">{this.props.text}</li>
+                <li className="navigation-item">{this.props.text} {this.props.subItems}</li>
             </Link>
         )
     }

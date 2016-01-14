@@ -12,7 +12,7 @@ export default class Header extends Component {
         return (
             <div className="eg-header">
                 <div className="container">
-                    Header
+                    <div className="site-logo"></div>
                 </div>
             </div>
         );

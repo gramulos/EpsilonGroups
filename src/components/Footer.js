@@ -7,7 +7,7 @@ export default class Footer extends Component {
         return (
             <div className="eg-footer">
                 <div className="container">
-                    Footer
+                    <div className="footer-container">Epsilon groups 2016</div>
                 </div>
             </div>
         );

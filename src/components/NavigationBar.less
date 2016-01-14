@@ -1,6 +1,8 @@
-@navigation_bg_color: #3a50cd;
-@navigation_bg_color_hover: #4667cd;
+@navigation_bg_color: #45408e;
+@navigation_bg_color_hover: #535096;
 @text_color: #FFFFFF;
+
+@import '../style/animate';
 
 .eg-navigation-bar {
   position: relative;
@@ -9,6 +11,13 @@
 
 .eg-navigation-bar nav {
   position: relative;
+}
+
+.navigation-bar .material-icons {
+  color: @text_color !important;
+  vertical-align: middle !important;
+  font-size: 18px !important;
+  transition: none !important;
 }
 
 .navigation-bar {
@@ -22,9 +31,9 @@
   position: relative;
   float: left;
   padding: 12px 18px;
-  background-color: @navigation_bg_color;
   color: @text_color;
   cursor: pointer;
+  margin: 0;
 }
 
 .navigation-item:hover {
@@ -33,10 +42,18 @@
 
 .navigation-item:hover .navigation-sub{
   visibility: visible;
+  -webkit-animation-name: flipInXFromTop;
+  animation-name: flipInXFromTop;
+
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
+  animation-duration: 0.2s;
 }
 
 .navigation-sub {
   position: absolute;
+  display: block;
   background-color: @navigation_bg_color;
   visibility: hidden;
   margin: 12px 0 0 -18px;
@@ -46,4 +63,21 @@
 
 .navigation-sub .navigation-item {
   width: 100%;
+  border-bottom: 1px solid @navigation_bg_color_hover;
+}
+
+@media all and (max-width: 779px) {
+  .navigation-item {
+    width: 100%;
+  }
+
+  .navigation-item .navigation-sub {
+    display: none !important;
+  }
+}
+
+@media all and (min-width: 780px) {
+  .navigation-item {
+    width: auto;
+  }
 }
