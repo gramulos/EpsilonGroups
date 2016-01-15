@@ -1883,6 +1883,73 @@
   animation-name: flipInXFromTop;
 }
 
+@-webkit-keyframes appearFromLeft {
+  from {
+    width: 0%;
+    white-space:nowrap;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+    opacity: 0;
+  }
+
+  60% {
+    white-space:nowrap;
+    overflow:hidden;
+    width: 190px;
+  }
+
+  80% {
+    white-space:nowrap;
+    overflow:hidden;
+    width: 150px;
+  }
+
+  to {
+    white-space:nowrap;
+    overflow:hidden;
+    width: 175px;
+  }
+}
+
+@keyframes appearFromLeft {
+  from {
+    width: 0%;
+    white-space:nowrap;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+    opacity: 0;
+  }
+
+  60% {
+    white-space:nowrap;
+    overflow:hidden;
+    width: 190px;
+  }
+
+  80% {
+    white-space:nowrap;
+    overflow:hidden;
+    width: 150px;
+  }
+
+  to {
+    white-space:nowrap;
+    overflow:hidden;
+    width: 175px;
+  }
+}
+
+.appearFromLeft {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: appearFromLeft;
+  animation-name: appearFromLeft;
+}
+
 @-webkit-keyframes flipInX {
   from {
     -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
