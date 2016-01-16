@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router, Route, Link } from 'react-router';
 import Paper from 'material-ui/lib/paper';
 import NavigationItem from './NavigationItem';
 import Ink from 'react-ink';
@@ -6,18 +7,7 @@ import Ink from 'react-ink';
 import './NavigationBar.less';
 
 const navigationMenu = [
-    {text: "Home", icon: "home", link: 'x', items: null},
-    {
-        text: "Projects",
-        icon: "extension",
-        link: null,
-        items: [
-            {text: "3D printer", icon: "3d_rotation", link: 'x', items: null},
-            {text: "Submarine", icon: "directions_boat", link: 'x', items: null},
-            {text: "Drone", icon: "toys", link: 'x', items: null},
-            {text: "Electro car", icon: "directions_car", link: 'x', items: null}
-        ]
-    },
+    {text: "Home", icon: "home", link: '/', items: null},
     {
         text: "Products",
         icon: "view_carousel",
@@ -33,7 +23,17 @@ const navigationMenu = [
         link: 'x',
         items: null
     },
-    {text: "Research and development", link: 'x', icon: "developer_board", items: null},
+    {
+        text: "Research and development",
+        link: 'x',
+        icon: "developer_board",
+        items: [
+            {text: "3D printer", icon: "3d_rotation", link: 'x', items: null},
+            {text: "Submarine", icon: "directions_boat", link: 'x', items: null},
+            {text: "Drone", icon: "toys", link: 'x', items: null},
+            {text: "Electro car", icon: "directions_car", link: 'x', items: null}
+        ]
+    },
     {text: "Contact us", icon: "flag", link: 'x', items: null}
 ];
 
@@ -58,8 +58,10 @@ export default class NavigationBar extends Component {
                             //return <NavigationItem text={item.text} link={item.text} onMouseOver={self.onMouseHover} key={item.text}/>;
                             return (
                                 <li className="navigation-item" key={item.text}>
-                                    {item.text}
-                                    <Ink />
+                                    <Link to={item.link}>
+                                        {item.text}
+                                        <Ink />
+                                    </Link>
                                 </li>);
                         }
                         else {
@@ -73,6 +75,7 @@ export default class NavigationBar extends Component {
                                     onMouseOver={self.onMouseHover}
                                     key={item.text}>
                                     {item.text}
+                                    <Ink />
                                     {self.renderMenuItems(item.items, true)}
                                 </li>);
                         }
