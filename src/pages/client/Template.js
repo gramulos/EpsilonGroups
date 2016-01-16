@@ -4,6 +4,8 @@ import NavigationBar from '../../components/NavigationBar';
 import Footer from '../../components/Footer';
 import HomePage from './Home';
 
+import '../../components/App.less';
+
 export default class ClientPage extends Component {
     constructor(props) {
         super(props)

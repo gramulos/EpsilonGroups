@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Provider } from 'react-redux';
 import routes from './Routes';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';

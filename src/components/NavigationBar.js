@@ -3,7 +3,6 @@ import { Router, Route, Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import { fetchClientMenu } from '../actions/index';
-
 import Paper from 'material-ui/lib/paper';
 import NavigationItem from './NavigationItem';
 import Ink from 'react-ink';
@@ -11,18 +10,8 @@ import Ink from 'react-ink';
 import './NavigationBar.less';
 
 const navigationMenu = [
-    {text: "Home", icon: "home", link: "/", items: null},
-    {
-        text: "Projects",
-        icon: "extension",
-        link: "x",
-        items: [
-            {text: "3D printer", icon: "3d_rotation", link: "x", items: null},
-            {text: "Submarine", icon: "directions_boat", link: "x", items: null},
-            {text: "Drone", icon: "toys", link: "x", items: null},
-            {text: "Electro car", icon: "directions_car", link: "x", items: null}
-        ]
-    },
+
+    {text: "Home", icon: "home", link: '/', items: null},
     {
         text: "Products",
         icon: "view_carousel",
@@ -38,8 +27,18 @@ const navigationMenu = [
         link: "x",
         items: null
     },
-    {text: "Research and development", link: "products", icon: "developer_board", items: null},
-    {text: "Contact us", icon: "flag", link: "x", items: null}
+    {
+        text: "Research and development",
+        link: 'x',
+        icon: "developer_board",
+        items: [
+            {text: "3D printer", icon: "3d_rotation", link: 'x', items: null},
+            {text: "Submarine", icon: "directions_boat", link: 'x', items: null},
+            {text: "Drone", icon: "toys", link: 'x', items: null},
+            {text: "Electro car", icon: "directions_car", link: 'x', items: null}
+        ]
+    },
+    {text: "Contact us", icon: "flag", link: 'x', items: null}
 ];
 
 class NavigationBar extends Component {
