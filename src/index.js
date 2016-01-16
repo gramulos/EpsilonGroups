@@ -2,19 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Routes from './Routes';
+import routes from './Routes';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
+import thunk from 'redux-thunk';
 import reducers from './reducers';
-import App from './components/App';
+import App from './pages/client/Template';
 
 import 'bootstrap-webpack';
 import 'normalize.css';
 
 injectTapEventPlugin();
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk, ReduxPromise)(createStore);
 
-var routes = Routes;
-
-ReactDOM.render(<Provider store={createStoreWithMiddleware(reducers)}>routes</Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={createStoreWithMiddleware(reducers)}>{routes}</Provider>, document.getElementById('root'));
