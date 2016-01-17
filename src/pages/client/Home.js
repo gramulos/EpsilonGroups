@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Home.less';
+
 export default class Body extends Component {
     render() {
         return(

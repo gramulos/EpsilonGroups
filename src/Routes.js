@@ -4,7 +4,7 @@ import { ReactRouter, Router, Route, Link } from 'react-router';
 import cTemplate from './pages/client/Template';
 import cProducts from './pages/client/Products';
 
-var Routes = (
+const Routes = (
     <Router>
         <Route path="/" component={cTemplate}>
             <Route path="products" component={cProducts} />

@@ -1,5 +1,6 @@
 .eg-header {
   position: relative;
+  background: #FFFFFF url('../images/eps3.png') no-repeat 83%;
   z-index: 1;
 }
 
@@ -12,8 +13,75 @@
   background-size: 371px 80px;
 }
 
-@media all and (max-width: 799px) {
+blockquote {
+  display: block;
+  width: 460px;
+  padding: 15px 22px 6px 52px !important;
+  margin: 0!important;
+  position: relative;
+  border: none !important;
+
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #666;
+  text-align: justify;
+}
+
+blockquote::before {
+  content: "\201C"; /*Unicode for Left Double Quote*/
+
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #999;
+
+  /*Positioning*/
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+.eg-quotes-box {
+  margin: 34px 0 0 600px;
+  position: absolute;
+  float: right;
+  font-style: italic;
+}
+
+.eg-quotes-box span {
+  font-family: Georgia, serif;
+  position: relative;
+  padding-right: 20px;
+  float: right;
+  text-align: right;
+}
+
+@media all and (max-width: 1199px) {
+  .eg-quotes-box {
+    margin: 18px 0 0 550px;
+  }
+
+  blockquote {
+    width: 320px;
+  }
+}
+
+@media all and (max-width: 994px) {
+  .eg-quotes-box {
+    display: none;
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .eg-header {
+    background-image: none;
+  }
+
   .site-logo {
     background-position: center !important;
   }
 }
+

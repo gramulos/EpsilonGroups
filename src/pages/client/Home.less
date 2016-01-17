@@ -1,0 +1,64 @@
+.site-root-container {
+  overflow-y: hidden;
+  animation: fadeinAfterLoading 1s;
+  -moz-animation: fadeinAfterLoading 1s; /* Firefox */
+  -webkit-animation: fadeinAfterLoading 1s; /* Safari and Chrome */
+  -o-animation: fadeinAfterLoading 1s; /* Opera */
+}
+
+.eg-activate {
+  padding-top: 0;
+  -webkit-transition: padding-top 5s ease-in-out;
+  -moz-transition: padding-top 5s ease-in-out;
+  -o-transition: padding-top 5s ease-in-out;
+  transition: padding-top 5s ease-in-out;
+}
+
+@keyframes fadeinAfterLoading {
+  from {
+    overflow-y: hidden;
+    opacity: 0;
+    padding-top:100px;
+  }
+  to {
+    overflow-y: auto;
+    opacity: 1;
+    padding-top: 0;
+  }
+}
+@-moz-keyframes fadeinAfterLoading { /* Firefox */
+  from {
+    overflow-y: hidden;
+    opacity: 0;
+    padding-top:100px;
+  }
+  to {
+    overflow-y: auto;
+    opacity: 1;
+    padding-top: 0;
+  }
+}
+@-webkit-keyframes fadeinAfterLoading { /* Safari and Chrome */
+  from {
+    overflow-y: hidden;
+    opacity: 0;
+    padding-top:100px;
+  }
+  to {
+    overflow-y: auto;
+    opacity: 1;
+    padding-top: 0;
+  }
+}
+@-o-keyframes fadeinAfterLoading { /* Opera */
+  from {
+    overflow-y: hidden;
+    opacity: 0;
+    padding-top:100px;
+  }
+  to {
+    overflow-y: auto;
+    opacity: 1;
+    padding-top: 0;
+  }
+}

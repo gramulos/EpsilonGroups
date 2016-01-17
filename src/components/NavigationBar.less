@@ -66,18 +66,21 @@
   border-bottom: 1px solid @navigation_bg_color_hover;
 }
 
-@media all and (max-width: 779px) {
+.navigation-item a:active, .navigation-item a:hover, .navigation-item a:link, .navigation-item a:visited {
+  color: @text_color;
+  text-decoration: none;
+}
+
+@media only screen and (max-device-width: 768px) {
+  .navigation-item {
+    width: auto;
+  }
+
   .navigation-item {
     width: 100%;
   }
 
   .navigation-item .navigation-sub {
     display: none !important;
-  }
-}
-
-@media all and (min-width: 780px) {
-  .navigation-item {
-    width: auto;
   }
 }

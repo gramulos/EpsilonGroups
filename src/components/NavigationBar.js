@@ -1,51 +1,37 @@
-import React, { Component } from 'react';
+'use strict';
+
+import { fetchClientMenu } from '../actions/index';
 import { Router, Route, Link } from 'react-router';
-import Paper from 'material-ui/lib/paper';
+import { bindActionCreators } from 'redux';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 import NavigationItem from './NavigationItem';
+import Paper from 'material-ui/lib/paper';
 import Ink from 'react-ink';
 
 import './NavigationBar.less';
 
-const navigationMenu = [
-    {text: "Home", icon: "home", link: '/', items: null},
-    {
-        text: "Products",
-        icon: "view_carousel",
-        link: 'x',
-        items: [
-            {text: "Software", icon: "home", link: 'x', items: null},
-            {text: "Hardware", icon: "home", link: 'x', items: null}
-        ]
-    },
-    {
-        text: "Services",
-        icon: "style",
-        link: 'x',
-        items: null
-    },
-    {
-        text: "Research and development",
-        link: 'x',
-        icon: "developer_board",
-        items: [
-            {text: "3D printer", icon: "3d_rotation", link: 'x', items: null},
-            {text: "Submarine", icon: "directions_boat", link: 'x', items: null},
-            {text: "Drone", icon: "toys", link: 'x', items: null},
-            {text: "Electro car", icon: "directions_car", link: 'x', items: null}
-        ]
-    },
-    {text: "Contact us", icon: "flag", link: 'x', items: null}
-];
-
 export default class NavigationBar extends Component {
+    constructor(props) {
+        super(props);
+
+        //this.props.fetchClientMenu();
+    }
+
     render() {
-        return (
-            <Paper className="eg-navigation-bar" zDepth={1} rounded={false}>
-                <nav className="container">
-                    {this.renderMenuItems(navigationMenu, false)}
-                </nav>
-            </Paper>
-        );
+        //if(this.props.clientMenu.menu && !this.props.clientMenu.isLoading) {
+            return (
+                <Paper className="eg-navigation-bar" zDepth={1} rounded={false}>
+                    <nav className="container">
+                        {this.renderMenuItems(this.props.clientMenu.menu, false)}
+                    </nav>
+                </Paper>
+            );
+        //}
+        //else {
+        //    return <div>Loading</div>
+        //}
     }
 
     renderMenuItems(items, isSub) {
@@ -55,7 +41,6 @@ export default class NavigationBar extends Component {
                 {
                     items.map(function (item) {
                         if (!item.items) {
-                            //return <NavigationItem text={item.text} link={item.text} onMouseOver={self.onMouseHover} key={item.text}/>;
                             return (
                                 <li className="navigation-item" key={item.text}>
                                     <Link to={item.link}>
@@ -65,26 +50,29 @@ export default class NavigationBar extends Component {
                                 </li>);
                         }
                         else {
-                            var text = item.text;
-                            var subItems = self.renderMenuItems(item.items, true);
-
-                            //return <NavigationItem text={text} subItems={subItems} link={item.text} key={item.text}/>;
                             return (
-                                <li
-                                    className="navigation-item"
-                                    onMouseOver={self.onMouseHover}
-                                    key={item.text}>
-                                    {item.text}
-                                    <Ink />
+                                <li className="navigation-item" key={item.text}>
+                                    <Link to={item.link}>
+                                        {item.text}
+                                        <Ink />
+                                    </Link>
                                     {self.renderMenuItems(item.items, true)}
-                                </li>);
+                                </li>
+                            );
                         }
                     })
                 }
             </ul>
         )
     }
-
-    onMouseHover(event) {
-    }
 }
+
+//function mapStateToProps({clientMenu}) {
+//    return {clientMenu}
+//}
+//
+//function mapDispatchToProps(dispatch) {
+//    return bindActionCreators({fetchClientMenu}, dispatch);
+//}
+//
+//export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar)
