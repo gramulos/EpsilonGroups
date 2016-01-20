@@ -43,7 +43,7 @@ export default class NavigationBar extends Component {
                         if (!item.items) {
                             return (
                                 <li className="navigation-item" key={item.text}>
-                                    <Link to={item.link}>
+                                    <Link to={'/' + item.link}>
                                         {item.text}
                                         <Ink />
                                     </Link>
@@ -52,7 +52,7 @@ export default class NavigationBar extends Component {
                         else {
                             return (
                                 <li className="navigation-item" key={item.text}>
-                                    <Link to={item.link}>
+                                    <Link to={'/' + item.link}>
                                         {item.text}
                                         <Ink />
                                     </Link>

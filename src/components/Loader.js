@@ -8,8 +8,7 @@ export default class Loader extends Component {
     render() {
         return (
             <div className="loader-wrapper">
-                <div className="loader"></div>
-                <div className="loading-text">LOADING</div>
+                <div className="sk-rotating-plane"></div>
             </div>
         );
     }
