@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './ProductsDetails.less';
 import app_image from '../../images/software/vt/vtAppMain.png';
 import app_image_2 from '../../images/software/vt/vtScreen.png';
-import app_image_train from '../../images/software/vt/train.jpg';
+import app_image_shooting from '../../images/software/vt/vtShooting.png';
 import app_image_train2 from '../../images/software/vt/train2.jpg';
 import app_image_vt_results from '../../images/software/vt/vtResults.png';
 
@@ -55,7 +55,7 @@ export default class ProductDetails extends Component {
                             </ul>
                         </div>
                         <div className="col-lg-5 col-md-4 col-sm-12 col-xs-12 eg-product-image">
-                            <img src={app_image_train}/>
+                            <img src={app_image_shooting}/>
                         </div>
                     </div>
 
