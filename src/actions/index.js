@@ -7,6 +7,29 @@ export const FETCH_CLIENT_MENU = 'FETCH_CLIENT_MENU';
 export const RECEIVE_CLIENT_MENU = 'RECEIVE_CLIENT_MENU';
 export const ERROR_CLIENT_MENU = 'ERROR_CLIENT_MENU';
 
+export const FETCH_PRODUCT_DETAILS = 'FETCH_PRODUCT_DETAILS';
+export const RECEIVE_PRODUCT_DETAILS = 'RECEIVE_PRODUCT_DETAILS';
+export const ERROR_PRODUCT_DETAILS = 'ERROR_PRODUCT_DETAILS';
+
+export function fetchProductDetails(productName) {
+    const url = `${ROOT_URL}products/${productName}`;
+    const request = new Firebase(url);
+
+    return function(dispatch, getState) {
+
+        request.on('value', function(product) {
+            dispatch({
+                type: RECEIVE_PRODUCT_DETAILS,
+                payload: product.val()
+            });
+        });
+
+        return dispatch({
+            type: FETCH_PRODUCT_DETAILS
+        });
+    }
+}
+
 export function fetchClientMenu() {
     const url = `${ROOT_URL}siteMenu`;
     const request = new Firebase(url);

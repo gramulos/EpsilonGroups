@@ -10,7 +10,7 @@ const Routes = (
         <Route path="/" component={cTemplate}>
             <Route path="products" component={cProducts} />
             <Route path="software" component={cProducts} />
-            <Route path="software/vt" component={cProductDetails} />
+            <Route path="software/:product" component={cProductDetails} />
         </Route>
     </Router>
 );

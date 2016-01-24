@@ -10,8 +10,7 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
-        publicPath: '/static/'
+        filename: 'static/bundle.js'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -40,8 +39,12 @@ module.exports = {
                 loader: 'imports?jQuery=jquery'
             },
             {
-                test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
-                loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
+                test: /\.(eot|woff|woff2|ttf|svg)$/,
+                loader: 'url-loader?limit=30000&name=[name].[ext]'
+            },
+            {
+                test: /\.(jpe?g|png|gif)$/,
+                loader: 'file?limit=30000&name=images/[name].[ext]'
             }
         ]
     }

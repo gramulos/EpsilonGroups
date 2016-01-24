@@ -7,7 +7,7 @@ var config = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'static/bundle.js'
     },
     plugins: [
         new webpack.ProvidePlugin({
@@ -42,8 +42,12 @@ var config = {
                 loader: 'imports?jQuery=jquery'
             },
             {
-                test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
-                loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
+                test: /\.(eot|woff|woff2|ttf|svg)$/,
+                loader: 'url-loader?limit=30000&name=fonts/[name].[ext]'
+            },
+            {
+                test: /\.(jpe?g|png|gif)$/,
+                loader: 'file-loader?name=images/[name].[ext]'
             }
         ]
     }

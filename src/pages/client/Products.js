@@ -14,7 +14,6 @@ import CardText from 'material-ui/lib/card/card-text';
 import './Products.less';
 import './Site.less';
 
-import vt_logo from '../../images/vt.jpg';
 import vt_image from '../../images/software/vt/soldier.png';
 import eu_image from '../../images/software/eu/electronUniversity.png';
 
