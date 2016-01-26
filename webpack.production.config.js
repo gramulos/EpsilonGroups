@@ -2,6 +2,10 @@ var path = require('path');
 var webpack = require('webpack');
 var CompressionPlugin = require("compression-webpack-plugin");
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
+//
+//var myReaddir = require("./src/imageCopier");
+//myReaddir.myReaddir('./src/images/');
+//copyStaticFiles('src/images', 'dist/images', /\.(jpe?g|png|gif)$/);
 
 var config = {
     entry: path.resolve(__dirname, 'src/index.js'),
@@ -46,10 +50,16 @@ var config = {
                 loader: 'url-loader?limit=30000&name=fonts/[name].[ext]'
             },
             {
-                test: /\.(jpe?g|png|gif)$/,
+                test: /\.(jpe?g|png|gif|jpg)$/,
                 loader: 'file-loader?name=images/[name].[ext]'
             }
         ]
+    },
+    node: {
+        console: 'empty',
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty'
     }
 };
 

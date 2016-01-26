@@ -11,6 +11,7 @@ import App from './pages/client/Template';
 
 import 'bootstrap-webpack';
 import 'normalize.css';
+import 'file?name=[name].[ext]!../index.html';
 
 injectTapEventPlugin();
 

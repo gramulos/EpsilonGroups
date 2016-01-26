@@ -1,13 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
+//
+//var myReaddir = require("./src/imageCopier");
+//myReaddir.myReaddir('./images/');
 
 module.exports = {
     devtool: 'eval',
-    entry: [
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
-        './src/index'
-    ],
+    entry: [ './src/index' ],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'static/bundle.js'
@@ -43,9 +42,12 @@ module.exports = {
                 loader: 'url-loader?limit=30000&name=[name].[ext]'
             },
             {
-                test: /\.(jpe?g|png|gif)$/,
-                loader: 'file?limit=30000&name=images/[name].[ext]'
+                test: /\.(jpe?g|png|gif|jpg)$/,
+                loader: 'file-loader?name=images/[name].[ext]'
             }
         ]
+    },
+    node: {
+        fs: 'empty',
     }
 };
