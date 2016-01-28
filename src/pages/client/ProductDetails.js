@@ -39,7 +39,7 @@ class ProductDetails extends Component {
         //                <img src={app_image_main} alt=""/>
         //            </div>
         //
-        //            <h4>Virtual trainer allows</h4>
+        //            <>Virtual trainer allows</h4>
         //
         //            <div className="row eg-product-container no-border">
         //                <div className="col-lg-7 col-md-8 col-sm-12 col-xs-12">

@@ -15,7 +15,7 @@ import './Products.less';
 import './Site.less';
 
 import vt_image from '../../images/software/vt/soldier.png';
-import eu_image from '../../images/software/eu/electronUniversity.png';
+import td_printer from '../../images/3dPrinter.png';
 
 export default class Body extends Component {
     render() {
@@ -37,13 +37,14 @@ export default class Body extends Component {
                     </div>
                     <div className="row eg-product-container">
                         <div className="col-lg-5 col-md-4 col-sm-12 col-xs-12 eg-product-image">
-                            <img src={eu_image}/>
+                            <img src={td_printer}/>
                         </div>
                         <div className="col-lg-7 col-md-8 col-sm-12 col-xs-12">
                             <div className="eg-product-information">
-                                <h1>Electronic university</h1>
-                                <div className="eg-product-description">The code name is "VT". Virtual trainer is assigned to train people for the purpose of enhancing their military skills and musketry.</div>
-                                <Link to="/software/eu"><RaisedButton backgroundColor="#45408e" label="View product" secondary={true} /></Link>
+                                <h1>3D printer</h1>
+                                <div className="eg-product-description">
+                                    Our printer offers extra camera printing, built-in control panel, the new print head with larger nozzles and many other features that make the printer faster and more productive.</div>
+                                <Link to="/hardware/3d_printer"><RaisedButton backgroundColor="#45408e" label="View product" secondary={true} /></Link>
                             </div>
                         </div>
                     </div>
