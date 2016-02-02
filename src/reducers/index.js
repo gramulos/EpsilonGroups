@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
 import ClientMenuReducer from './reducer_client_menu';
 import ProductDetailsReducer from './reducer_product_details.js';
+import ChangeSubject from './reducer_change_subject.js';
+import {reducer as formReducer} from 'redux-form';
 
 const rootReducer = combineReducers({
     clientMenu: ClientMenuReducer,
-    productDetails: ProductDetailsReducer
+    productDetails: ProductDetailsReducer,
+    changeSubject: ChangeSubject,
+    form: formReducer
 });
 
 export default rootReducer;
