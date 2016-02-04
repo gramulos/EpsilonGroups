@@ -1,44 +1,29 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { fetchMessageSubject } from '../../actions/index';
+import { sendEmail } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import {reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import TextField from 'material-ui/lib/text-field';
 import Colors from 'material-ui/lib/styles/colors';
 import RaisedButton from 'material-ui/lib/raised-button';
-import nodemailer from 'nodemailer';
-
-const smtpTransport = nodemailer.createTransport("SMTP",{
-    service: "Gmail",
-    auth: {
-        user: "epsilongroups2016@gmail.com",
-        pass: "qaz123WSX!@#"
-    }
-});
-
-const mailOptions = {
-    from: "Fred Foo ✔ <foo@blurdybloop.com>", // sender address
-    to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
-};
 
 class Contacts extends Component {
-    handleOnClick() {
-        console.log(this.props.fields);
-        smtpTransport.sendMail(mailOptions, function(error, response){
-            if(error){
-                console.log(error);
-            }else{
-                console.log("Message sent: " + response.message);
-            }
+    constructor(props) {
+        super(props);
+    }
 
-            // if you don't want to use this transport object anymore, uncomment following line
-            //smtpTransport.close(); // shut down the connection pool, no more messages
-        });
+    handleOnClick() {
+
+        var mailOptions = {
+            name: this.props.fields.subject.value,
+            email: this.props.fields.email.value,
+            message: this.props.fields.message.value,
+            emailTo: 'gramulos@gmail.com'
+        };
+        console.log(mailOptions);
+        this.props.sendEmail(mailOptions);
     }
 
     render() {
@@ -87,7 +72,7 @@ class Contacts extends Component {
                             floatingLabelStyle={styles.errorStyle}
                             underlineFocusStyle={styles.underlineStyle}
                             {...message}/>
-                        <RaisedButton backgroundColor="#45408e" style={styles.btnStyle} label="Send email" secondary={true} onClick={this.handleOnClick.bind(this)} />
+                        <RaisedButton backgroundColor="#45408e" style={styles.btnStyle} label="Send email" secondary={true} onClick={this.handleOnClick.bind(this)}/>
                     </div>
                 </div>
             </div>
@@ -95,9 +80,13 @@ class Contacts extends Component {
     }
 }
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({sendEmail}, dispatch);
+}
+
 Contacts = reduxForm({
     form: 'contact',
     fields: ['message', 'subject', 'email']
 })(Contacts);
 
-export default Contacts;
+export default connect(null, mapDispatchToProps)(Contacts);

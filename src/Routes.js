@@ -7,6 +7,7 @@ import cProductDetails from './pages/client/ProductDetails';
 import cServices from './pages/client/Services';
 import c3DPrinter from './pages/client/3dPrinter';
 import cContacts from './pages/client/ContactUs';
+import cNotFound from './pages/client/404'
 
 const Routes = (
     <Router>
@@ -17,6 +18,7 @@ const Routes = (
             <Route path="hardware/:product" component={c3DPrinter} />
             <Route path="services" component={cServices} />
             <Route path="contact_us" component={cContacts} />
+            <Route path="*" component={cNotFound} />
         </Route>
     </Router>
 );

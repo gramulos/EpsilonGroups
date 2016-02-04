@@ -11,14 +11,25 @@ export const FETCH_PRODUCT_DETAILS = 'FETCH_PRODUCT_DETAILS';
 export const RECEIVE_PRODUCT_DETAILS = 'RECEIVE_PRODUCT_DETAILS';
 export const ERROR_PRODUCT_DETAILS = 'ERROR_PRODUCT_DETAILS';
 export const ON_CHANGE_SUBJECT = 'ON_CHANGE_SUBJECT';
+export const SEND_EMAIL = 'SEND_EMAIL';
 
 export function fetchMessageSubject(value) {
-    console.log(value);
     return function(dispatch, getState) {
         return dispatch({
             type: ON_CHANGE_SUBJECT,
             payload: value
         });
+    }
+}
+
+export function sendEmail(data) {
+    const url = 'https://pacific-shelf-9029.herokuapp.com/api/sendEmail';
+    const request = axios.post(url, data);
+
+    console.log(data);
+    return {
+        type: SEND_EMAIL,
+        payload: request
     }
 }
 
